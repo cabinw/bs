@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cabinw Start Page</title>
+	<link rel="stylesheet" type="text/css" media="screen"  href="{{ static_url('style2.css') }}"/>
+	<!-- <link rel="shortcut icon" href="/static/img/favicon.ico" /> -->
+</head>
+<body>
+	<div id="Root"><div style="float: right"><a href="https://mail.google.com/" target="_blank">Gmail</a>&nbsp; <a href="https://wx.qq.com/" target="_blank">WeChat</a>&nbsp; <a href="https://www.v2ex.com" target="_blank">V2EX</a>&nbsp; <a href="https://www.twitter.com/" target="_blank">Twitter</a>&nbsp; <a href="https://www.xiami.com/" target="_blank">Xiami</a></div>
+		<strong style="color: #999">Cabinw Start Page</strong>
+		<div class="sep"></div>
+		<form target="_blank" method="get" action="http://www.google.com/search">
+		<input type="hidden" name="forid" value="1" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="hidden" name="hl" value="en-US" />
+		<input type="text" name="q" id="google" class="sl" /> <input type="submit" value="Google Search" class="super normal button" />
+		</form>
+		<div class="sep"></div>
+		<div class="column">
+			<div class="column_title">MOST VISITED</div>
+			<ul class="nav">
+			{% for item in items %}
+         		<li><a href="{{ escape(item['url']) }}" target="_blank">{{ item['name'] }}</a></li>
+       		{% end %}	
+			</ul>
+		</div>
+	
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-11940834-3");
+	pageTracker._setDomainName("none");
+	pageTracker._setAllowLinker(true);
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>
