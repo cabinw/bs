@@ -17,4 +17,6 @@ A **clone** action here means to just clone a collection and this collection won
 
 4, Support search actions.
 
+5, Bookmark.html parser(Safari, Chrome, Firefox)
+
 MORE....
