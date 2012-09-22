@@ -5,9 +5,44 @@
 	<title>Cabinw Start Page</title>
 	<link rel="stylesheet" type="text/css" media="screen"  href="{{ static_url('style2.css') }}"/>
 	<!-- <link rel="shortcut icon" href="/static/img/favicon.ico" /> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="{{ static_url('jquery.masonry.min.js') }}"></script>
+	<script src="{{ static_url('jquery.easydrag.handler.beta2.js')}}"></script>
+	<script type="text/javascript">
+    // $(function(){
+    //     var bool=false;
+    //     var offsetX=0;
+    //     var offsetY=0;
+    //     $(".column").mousedown(function(){
+    //         bool=true;
+    //         offsetX = event.offsetX;
+    //         offsetY = event.offsetY;
+    //         $(this).css('cursor','move');
+    //                                     })
+    //     .mouseup(function(){
+    //         bool=false;
+    //                       })
+    //     $(document).mousemove(function(e){
+    //         if(!bool)
+    //             return;
+    //         var x = event.clientX-offsetX;
+    //         var y = event.clientY-offsetY;
+    //         $(".column").css("left", x);
+    //         $(".column").css("top", y);
+            
+    //                                    })
+    //            })
+    $(document).ready( function()
+       {
+        $(".column").easydrag();
+       }
+     );
+</script>
 </head>
 <body>
-	<div id="Root"><div style="float: right"><a href="https://mail.google.com/" target="_blank">Gmail</a>&nbsp; <a href="https://wx.qq.com/" target="_blank">WeChat</a>&nbsp; <a href="https://www.v2ex.com" target="_blank">V2EX</a>&nbsp; <a href="https://www.twitter.com/" target="_blank">Twitter</a>&nbsp; <a href="https://www.xiami.com/" target="_blank">Xiami</a></div>
+	<div class="bar">
+		<div style="float: right"><a href="https://mail.google.com/" target="_blank">Gmail</a>&nbsp; <a href="https://wx.qq.com/" target="_blank">WeChat</a>&nbsp; <a href="https://www.v2ex.com" target="_blank">V2EX</a>&nbsp; <a href="https://www.twitter.com/" target="_blank">Twitter</a>&nbsp; <a href="https://www.xiami.com/" target="_blank">Xiami</a>&nbsp; <a href="login.html" target="Admin">Login</a>
+		</div>
 		<strong style="color: #999">Cabinw Start Page</strong>
 		<div class="sep"></div>
 		<form target="_blank" method="get" action="http://www.google.com/search">
@@ -16,13 +51,222 @@
 		<input type="hidden" name="hl" value="en-US" />
 		<input type="text" name="q" id="google" class="sl" /> <input type="submit" value="Google Search" class="super normal button" />
 		</form>
-		<div class="sep"></div>
+	</div>
+
+	<div id="Root">
+		<!-- <div class="sep"></div> -->
 		<div class="column">
 			<div class="column_title">MOST VISITED</div>
 			<ul class="nav">
 			{% for item in items %}
-         		<li><a href="{{ escape(item['url']) }}" target="_blank">{{ item['name'] }}</a></li>
+         		<li><a href="{{ escape(item['url']) }}" target="_blank">{{ item['name'] }}---</a></li>
        		{% end %}	
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">Work @ Hihex</div>
+			<ul class="nav">
+				<li><a href="http://server.auraht.com:3000" target="_blank"><Strong>GITLIB</Strong></a></li>
+				<li><a href="https://scrumdo.auraht.com/organization/auraht/dashboard" target="_blank">ScrumDo</a></li>
+				<li><a href="https://trello.com" target="_blank">Trello</a></li>
+				<li><a href="http://www.yammer.com/auraht.com/" target="_blank">Yammer</a></li>
+				<li><a href="https://mail.google.com/mail/u/1/#inbox" target="_blank">Mail</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">PLAY</div>
+			<ul class="nav">
+				<li><a href="http://bilibili.kankanews.com" target="_blank"><img src="{{ static_url('bilibili.png')}}" align="absmiddle" style="padding-bottom: 3px;" />&nbsp;</a></li>
+				<li><a href="http://bangumi.tv" target="_blank">Bangumi</a></li>
+				<li><a href="http://ps3.tgbus.com/" target="_blank">TGBUS</a></li>
+				<li><a href="http://www.gamespot.com/" target="_blank">GameSpot</a></li>
+				<li><a href="http://www.steampowered.com/" target="_blank">Steam</a></li>
+				<li><a href="http://www.kotaku.com/" target="_blank">Kotaku</a></li>
+				<li><a href="http://www.joystiq.com/" target="_blank">Joystiq</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">CHINESE</div>
+			<ul class="nav">
+				<li><a href="http://www.mtime.com/" target="_blank">时光</a></li>
+				<li><a href="http://www.youku.com/" target="_blank">优酷</a></li>
+				<li><a href="http://www.renren.com/" target="_blank">人人</a></li>
+				<li><a href="http://news.sina.com.cn/" target="_blank">新浪新闻</a></li>
+				<li><a href="http://www.ifeng.com/" target="_blank">凤凰网</a></li>
+				<li><a href="http://news.qq.com/" target="_blank">QQ 新闻</a></li>
+				<li><a href="http://www.chdbits.org/" target="_blank">CHDBits</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">GEEK</div>
+			<ul class="nav">
+				<li><a href="http://bbs.chinaunix.net" target="_blank"><img src="{{ static_url('chinaunix.png')}}" align="absmiddle" style="padding-bottom: 3px;" /></a></li>
+				<li><a href="http://news.mydrivers.com/blog/" target="_blank">驱动之家</a></li>
+				<li><a href="http://www.lifehacker.com/" target="_blank">Lifehacker</a></li>
+				<li><a href="http://www.engadget.com/" target="_blank">Engadget</a></li>
+				<li><a href="http://www.wired.com/gadgetlab/" target="_blank">Gadget Lab</a></li>
+				<li><a href="http://www.apple4.us/" target="_blank">Apple4us</a></li>
+				<li><a href="http://www.ifanr.com/" target="_blank">iFanr</a></li>
+				<li><a href="http://www.tektalk.org/" target="_blank">弯曲评论</a></li>
+				<li><a href="http://www.usesthis.com/" target="_blank">The Setup</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">PHOTOGRAPHY</div>
+			<ul class="nav">
+			    <li><a href="http://forum.xitek.com/forum.php" target="_blank">色影无忌 xiteck</a></li>
+				<li><a href="http://www.fengniao.com" target="_blank">蜂鸟网</a></li>
+				<li><a href="http://www.douban.com/group/DarkRoom/" target="_blank">豆瓣暗房小组</a></li>
+				<li><a href="http://www.douban.com/group/lovefilm/" target="_blank">豆瓣胶片控小组</a></li>
+				<li><a href="http://pp.163.com/group/pub/" target="_blank">网易摄影小镇</a></li>
+				<li><a href="http://imagene.me" target="_blank">影像基因</a></li>
+				<li><a href="http://www.cnfilm.org" target="_blank">菲林中文</a></li>
+				<li><a href="http://fotomen.cn" target="_blank"><img src="{{ static_url('logotype.png')}}" align="absmiddle" style="padding-bottom: 3px;" /></a></li>
+			</ul>
+		</div>
+		
+
+		<!-- <div class="clear"></div> -->
+		<!-- <div class="sep"></div> -->
+		<div class="column">
+			<div class="column_title">OLIVIDA</div>
+			<ul class="nav">
+				<li><a href="http://www.olivida.com/" target="_blank">OLIVIDA</a></li>
+				<li><a href="http://www.define.io/" target="_blank">Define.io</a></li>
+				<li><a href="http://picky.olivida.com/" target="_blank">Project Picky</a></li>
+				<li><a href="http://www.v2ex.com/" target="_blank">V2EX</a></li>
+				<li><a href="http://workspace.v2ex.com/" target="_blank">Workspace</a></li>
+                <li><a href="http://o.olivida.com/" target="_blank">O</a></li>
+				<li><a href="http://www.olivida.com/bc2stats" target="_blank">BC2Stats</a></li>
+				<li><a href="http://www.olivida.com/gomoku" target="_blank">Gomoku</a></li>
+				<li><a href="http://www.olivida.com/ibtc" target="_blank">iBTC</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">COCOA</div>
+			<ul class="nav">
+				<li><a href="http://developer.apple.com/iphone/" target="_blank">iPhone Dev Center</a></li>
+				<li><a href="http://www.cocoawithlove.com/" target="_blank">Cocoa with Love</a></li>
+				<li><a href="http://cocoasamurai.blogspot.com/" target="_blank">Cocoa Samurai</a></li>
+				<li><a href="http://cocoadevcentral.com/" target="_blank">Cocoa Dev Central</a></li>
+				<li><a href="http://theocacao.com/" target="_blank">Theocacao</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">MAC &amp; IPHONE</div>
+			<ul class="nav">
+				<li><a href="http://www.apple.com/" target="_blank">Apple</a></li>
+				<li><a href="http://www.smokingapples.com/" target="_blank">Smoking Apples</a></li>
+				<li><a href="http://nodpad.com/" target="_blank">No DPad</a></li>
+				<li><a href="http://www.tuaw.com/" target="_blank">TUAW</a></li>
+				<li><a href="http://www.9to5mac.com/" target="_blank">9 to 5 Mac</a></li>
+				<li><a href="http://www.freeappaday.com/" target="_blank">Free App a Day</a></li>
+				<li><a href="http://www.slidetoplay.com/" target="_blank">Slide to Play</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">DESIGN</div>
+			<ul class="nav">
+				<li><a href="http://www.dribbble.com/" target="_blank">Dribbble</a></li>
+				<li><a href="http://wherewedesign.com/" target="_blank">Where We Design</a></li>
+				<li><a href="http://emberapp.com/" target="_blank">Ember</a></li>
+                <li><a href="http://www.smashingmagazine.com/" target="_blank">Smashing Magazine</a></li>
+				<li><a href="http://www.tutorial9.net/" target="_blank">Tutorial9</a></li>
+				<li><a href="http://www.fullyillustrated.com/" target="_blank">Fully Illustrated</a></li>
+				<li><a href="http://designbump.com/" target="_blank">Design Bump</a></li>
+				<li><a href="http://www.deviantart.com/" target="_blank">deviantART</a></li>
+				<li><a href="http://sixrevisions.com/" target="_blank">Six Revisions</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">HIGHLIGHTS</div>
+			<ul class="nav">
+				<li><a href="http://v.6.cn/" target="_blank">六间房秀场</a></li>
+				<li><a href="http://www.dbanotes.net/" target="_blank">DBA Notes</a></li>
+				<li><a href="http://lohas.ly/" target="_blank">Lohas.ly</a></li>
+				<li><a href="http://angelcrunch.com/" target="_blank">AngelCrunch</a></li>
+				<li><a href="http://tisiwi.com/" target="_blank">天使湾</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">ENTERTAINMENT</div>
+			<ul class="nav">
+				<li><a href="http://www.slashfilm.com/" target="_blank">/Film</a></li>
+				<li><a href="http://www.fflick.com/" target="_blank">fflick</a></li>
+				<li><a href="http://www.empireonline.com/" target="_blank">Empire</a></li>
+				<li><a href="http://www.xiami.com/" target="_blank">虾米</a></li>
+				<li><a href="http://www.last.fm/" target="_blank">Last.fm</a></li>
+			</ul>
+		</div>
+		<!-- <div class="clear"></div> -->
+		<!-- <div class="sep"></div> -->
+		<div class="column">
+			<div class="column_title">PROGRAMMING</div>
+			<ul class="nav">
+				<li><a href="http://iolanguage.com/" target="_blank">io</a></li>
+				<li><a href="http://developer.apple.com/iphone/library/navigation/" target="_blank">iPhone OS</a></li>
+				<li><a href="http://developer.apple.com/mac/library/navigation/" target="_blank">Mac OS X</a></li>
+				<li><a href="http://www.python.org/" target="_blank">Python</a></li>
+				<li><a href="http://www.php.net/" target="_blank">PHP</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">OPEN SOURCE</div>
+			<ul class="nav">
+				<li><a href="http://www.cocos2d-iphone.org/" target="_blank">cocos2d</a></li>
+				<li><a href="http://code.google.com/appengine/" target="_blank">App Engine</a></li>
+				<li><a href="http://code.google.com/p/redis/" target="_blank">Redis</a></li>
+				<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a></li>
+				<li><a href="http://couchdb.apache.org/" target="_blank">CouchDB</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">MAC SOFTWARE</div>
+			<ul class="nav">
+				<li><a href="http://www.caminobrowser.org/" target="_blank">Camino</a></li>
+				<li><a href="http://www.appzapper.com/" target="_blank">AppZapper</a></li>
+				<li><a href="http://www.transmissionbt.com/" target="_blank">Transmission</a></li>
+				<li><a href="http://www.adium.im/" target="_blank">Adium</a></li>
+				<li><a href="http://www.panic.com/transmit" target="_blank">Transmit</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">FIREFOX ADD-ONS</div>
+			<ul class="nav">
+				<li><a href="http://getfirebug.com/" target="_blank">Firebug</a></li>
+				<li><a href="https://mozillalabs.com/weave/" target="_blank">Weave Sync</a></li>
+				<li><a href="http://echofon.com/twitter/firefox/" target="_blank">Echofon</a></li>
+				<li><a href="https://addons.mozilla.org/en-US/firefox/addon/60" target="_blank">Web Developer</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">ONLINE SERVICES</div>
+			<ul class="nav">
+				<li><a href="http://simple-note.appspot.com/" target="_blank">Simplenote</a></li>
+				<li><a href="http://www.me.com/" target="_blank">MobileMe</a></li>
+				<li><a href="http://www.meebo.com/" target="_blank">Meebo</a></li>
+				<li><a href="http://www.todoist.com/" target="_blank">Todoist</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">HOSTING</div>
+			<ul class="nav">
+				<li><a href="https://ac.mediatemple.net/" target="_blank">Media Temple</a></li>
+				<li><a href="http://www.linode.com/" target="_blank">Linode</a></li>
+				<li><a href="https://www.rackspacecloud.com/" target="_blank">Rackspace Cloud</a></li>
+                <li><a href="https://appengine.google.com/dashboard?&app_id=v2ex-picky" target="_blank">GAE: v2ex-picky</a></li>
+				<li><a href="https://appengine.google.com/dashboard?&app_id=olivida-start" target="_blank">GAE: olivida-start</a></li>
+				<li><a href="https://appengine.google.com/dashboard?&app_id=v2ex" target="_blank">GAE: v2ex</a></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="column_title">BUY</div>
+			<ul class="nav">
+				<li><a href="http://www.newegg.com.cn/" target="_blank">新蛋</a></li>
+				<li><a href="http://www.360buy.com/" target="_blank">京东</a></li>
+				<li><a href="http://www.taobao.com/" target="_blank">淘宝</a></li>
+				<li><a href="http://www.alipay.com/" target="_blank">支付宝</a></li>
+				<li><a href="http://www.10010.com/" target="_blank">联通</a></li>
 			</ul>
 		</div>
 	
@@ -36,6 +280,16 @@
 	pageTracker._setDomainName("none");
 	pageTracker._setAllowLinker(true);
 	pageTracker._trackPageview();
-	} catch(err) {}</script>
+	} catch(err) {}
+
+	$(function(){
+  		$('#Root').masonry({
+    	// options
+    	itemSelector : '.column',
+    	columnWidth : 10
+  });
+});
+
+	</script>
 </body>
 </html>

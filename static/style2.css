@@ -48,13 +48,16 @@ a.orange:hover {
 
 #Root {
 	width: 800px;
+	height:auto;
 	margin: 30px auto 0px auto;
+	padding: 10px;
+
+
 	background-color: #fff;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	border: 2px solid rgba(0,0,0,0.05);
-	padding: 10px;
 	font-size: 15px;
 	-webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
 	-moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
@@ -71,12 +74,37 @@ a.orange:hover {
 
 /* CLASSes */
 
+.bar{
+	width: 800px;
+	height:auto;
+	margin: 30px auto 0px auto;
+	padding: 10px;
+
+
+	background-color: #fff;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 2px solid rgba(0,0,0,0.05);
+	font-size: 15px;
+	-webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.item {
+  width: 220px;
+  margin: 10px;
+  float: left;
+}
+
 .sep {
 	margin: 10px 0px 10px 0px;
 	border-top: 1px solid #f0f0f0;
 }
 
 .column {
+/*	width: 120px;
+	margin: 10px;
 	float: left;
 	font-size: 12px;
 	margin-right: 10px;
@@ -86,7 +114,16 @@ a.orange:hover {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);*/
+	margin: 5px;
+  	padding: 5px;
+  	background: #f9f9f9;
+  	font-size: 11px;
+  	line-height: 1.4em;
+  	float: left;
+  	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 .column_title {
@@ -128,7 +165,7 @@ ul.nav li {
 }
 
 .super.button {
-	background-image: url("/static/img/bg_blended.png");
+	/*background-image: url("/static/img/bg_blended.png");*/
 	padding: 4px 15px 4px 15px;
 	border: 1px solid rgba(0,0,0,.25);
 	border-bottom-color: rgba(0,0,0,.35);
