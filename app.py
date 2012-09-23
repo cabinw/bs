@@ -75,6 +75,14 @@ class MainHandler(tornado.web.RequestHandler):
         items = [url1,url2]
         self.render("start.html", title="My title", items=items)
         # print template.render(the='variables', go='here'
+class BgHandler(tornado.web.RequestHandler):
+    def get(self):
+        file = open('static/bg.file')
+        results = file.readlines()
+        for i in range(0,len(results)):
+            results[i] = results[i].strip()
+        self.render("bg.html", title="My title", items=results)
+
 
 def main():
     settings = dict(
@@ -84,6 +92,7 @@ def main():
     logging.info("Starting Tornado web server on http://localhost:%s" % options.port)
     application = tornado.web.Application([
         (r"/", MainHandler),
+        (r"/bg", BgHandler),
     ], **settings)
     application.listen(options.port, **server_settings)
     tornado.ioloop.IOLoop.instance().start()

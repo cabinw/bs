@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cabinw Start Page</title>
+	<!-- <link rel="stylesheet" type="text/css" media="screen"  href="{{ static_url('style2.css') }}"/> -->
+	<link rel="stylesheet" type="text/css" media="screen"  href="static/style2.css"/>
+	<!-- <link rel="shortcut icon" href="/static/img/favicon.ico" /> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="static/jquery.masonry.min.js"></script>
+</head>
+<body>
+	<div class="bar">
+		<div style="float: right"><a href="https://mail.google.com/" target="_blank">Gmail</a>&nbsp; <a href="https://wx.qq.com/" target="_blank">WeChat</a>&nbsp; <a href="https://www.v2ex.com" target="_blank">V2EX</a>&nbsp; <a href="https://www.twitter.com/" target="_blank">Twitter</a>&nbsp; <a href="https://www.xiami.com/" target="_blank">Xiami</a>&nbsp; <a href="login.html" target="Admin">Login</a>
+		</div>
+		<strong style="color: #999">Cabinw Start Page</strong>
+		<div class="sep"></div>
+		<form target="_blank" method="get" action="http://www.google.com/search">
+		<input type="hidden" name="forid" value="1" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="hidden" name="hl" value="en-US" />
+		<input type="text" name="q" id="google" class="sl" /> <input type="submit" value="Google Search" class="super normal button" />
+		</form>
+	</div>
+
+	<div id="Root"  class="clearfix">
+		<!-- <div class="sep"></div> -->
+		{% for item in items %}
+		<div class="box photo col3">
+      		<a onclick="changeBg('{{item}}');return false;" href="#"><img src={{item}} alt="" /></a>
+    	</div>
+    	{% end %}
+
+    </div>
+		
+	<script type="text/javascript">
+		function changeBg(url){
+			alert("Change backgroundImage to: "+url);
+			document.body.style.backgroundImage="url("+url+")";
+		}
+
+	</script>	
+	
+
+</body>
+</html>
