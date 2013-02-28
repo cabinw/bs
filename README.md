@@ -1,6 +1,8 @@
 ### Project BS
 ==
 
+**Will not be updated until it's usable.**
+
 Project BS(Bookmark System) is a project created to collect bookmarks by TAGs in a version-control-like system.
 Users can **fork** or **clone** other's bookmark colletions.
 
